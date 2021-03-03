@@ -25,5 +25,19 @@ namespace CarDealership.Controllers
       List<Car> allCars = Car.GetAll();
       return View(allCars);
     }
+
+    [HttpGet("/cars/maxprice")]
+    public ActionResult MaxPrice()
+    {
+      return View();
+    }
+
+    [HttpGet("/cars/inpricerange")]
+    public ActionResult InPriceRange(int maxPrice)
+    {
+      List<Car> allCars = Car.WorthBuying(maxPrice);
+      return View(allCars);
+    }
+
   }
 }
